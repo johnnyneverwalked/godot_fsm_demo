@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsbe7r4vj5f81"]
+
+[ext_resource type="PackedScene" uid="uid://cyhttsrh1ulgj" path="res://player.tscn" id="1_8rwl8"]
+[ext_resource type="Texture2D" uid="uid://ccnxw6doty1rs" path="res://assets/Ql2XpGS.png" id="1_chr3e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm1wn"]
+size = Vector2(30.5, 964.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf573"]
+size = Vector2(1148, 23)
+
+[sub_resource type="Gradient" id="Gradient_sqlij"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5rpcu"]
+gradient = SubResource("Gradient_sqlij")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_681cf"]
+size = Vector2(256, 16)
+
+[node name="game" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.52549)
+offset_left = -768.0
+offset_top = -516.0
+offset_right = 788.0
+offset_bottom = 540.0
+texture = ExtResource("1_chr3e")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-556, -156)
+shape = SubResource("RectangleShape2D_cm1wn")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(93, -272)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(483, 116)
+shape = SubResource("RectangleShape2D_cm1wn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(93, -272)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-87, 584)
+shape = SubResource("RectangleShape2D_vf573")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(368, 64)
+scale = Vector2(1, 2)
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D4"]
+offset_left = -128.0
+offset_top = -8.0
+offset_right = 128.0
+offset_bottom = 8.0
+texture = SubResource("GradientTexture1D_5rpcu")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_681cf")
+one_way_collision = true
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-352, 64)
+scale = Vector2(1, 2)
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D5"]
+offset_left = -128.0
+offset_top = -8.0
+offset_right = 128.0
+offset_bottom = 8.0
+texture = SubResource("GradientTexture1D_5rpcu")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("RectangleShape2D_681cf")
+one_way_collision = true
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(8, -128)
+scale = Vector2(1, 2)
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D6"]
+offset_left = -128.0
+offset_top = -8.0
+offset_right = 128.0
+offset_bottom = 8.0
+texture = SubResource("GradientTexture1D_5rpcu")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+shape = SubResource("RectangleShape2D_681cf")
+one_way_collision = true
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("1_8rwl8")]
+position = Vector2(0, -48)
+scale = Vector2(1.5, 1.5)
+JUMP_VELOCITY = -600.0
